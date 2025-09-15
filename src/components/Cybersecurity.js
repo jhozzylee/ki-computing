@@ -8,11 +8,11 @@ const Cybersecurity = () => {
   return (
     <section className="bg-background text-dark pt-24 sm:pt-28 lg:pt-24">
       {/* Hero Section */}
-      <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col gap-6">
-        <h2 className="text-h2 sm:text-h1 font-bold font-filson text-center sm:text-left">
+      <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col gap-2 sm:gap-6">
+        <h2 className="text-h2 sm:text-h1 font-filson text-left">
           Cybersecurity Services
         </h2>
-        <p className="text-lg max-w-2xl mx-auto sm:mx-0 text-center sm:text-left">
+        <p className="text-body sm:text-bodyLg max-w-2xl sm:mx-0 text-left">
           Safeguard Your Business with K.I. Computing’s Security Solutions
         </p>
       </div>
