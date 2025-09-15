@@ -8,7 +8,7 @@ const Compliance = () => {
   return (
     <section className="bg-background text-dark pt-24 sm:pt-28 lg:pt-24">
       {/* Hero Section */}
-      <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col gap-6">
+      <div className="max-w-[1120px] mx-auto px-4 py-10 flex flex-col gap-6">
         <h2 className="text-h2 sm:text-h1 font-bold font-filson text-center sm:text-left">
           Compliance Services
         </h2>

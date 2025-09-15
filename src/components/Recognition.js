@@ -28,38 +28,39 @@ const AboutPage = () => {
   return (
     <div className="bg-background text-dark">
       {/* Features + Recognition */}
-      <section className="py-20 max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Left Column: Features */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-[32px]">
-          {features.map((feature, idx) => (
-            <div
-              key={idx}
-              className="w-[256px] px-1 py-4 rounded-[16px] border border-surface-muted flex flex-col gap-3"
-            >
-              <h4 className="text-h3 text-primary font-filson">{feature.title}</h4>
-              <p className="text-body text-neutral">{feature.description}</p>
-            </div>
-          ))}
-        </div>
+<section className="py-20 max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12">
+  {/* Left Column: Features */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-[32px] order-2 lg:order-1 justify-center">
+    {features.map((feature, idx) => (
+      <div
+        key={idx}
+        className="w-[256px] mx-auto px-1 py-4 rounded-[16px] border border-surface-muted flex flex-col gap-3"
+      >
+        <h4 className="text-h3 text-primary font-filson">{feature.title}</h4>
+        <p className="text-body text-neutral">{feature.description}</p>
+      </div>
+    ))}
+  </div>
 
-        {/* Right Column: Recognition & Impact */}
-        <div className="flex flex-col gap-4">
-          <h2 className="text-h2 font-filson">
-            Recognition & <span className="text-primary">Impact</span>
-          </h2>
-          <p className="text-bodyLg text-neutral">
-            Over the years, K.I. Computing has earned a reputation for being reliable,
-            responsive, and results-driven. Businesses trust us not only to resolve
-            issues quickly, but to proactively prevent them — reducing downtime,
-            strengthening cybersecurity, and ensuring compliance before problems arise.
-            Our approach goes beyond technology; we focus on building long-term
-            partnerships rooted in trust and transparency. From local family-run shops
-            to growing companies with complex needs, our impact is measured in the
-            confidence our clients gain knowing their IT is secure, efficient, and
-            built for growth.
-          </p>
-        </div>
-      </section>
+  {/* Right Column: Recognition & Impact */}
+  <div className="flex flex-col gap-4 order-1 lg:order-2 text-center lg:text-left">
+    <h2 className="text-h2 font-filson">
+      Recognition & <span className="text-primary">Impact</span>
+    </h2>
+    <p className="text-bodyLg text-neutral">
+      Over the years, K.I. Computing has earned a reputation for being reliable,
+      responsive, and results-driven. Businesses trust us not only to resolve
+      issues quickly, but to proactively prevent them — reducing downtime,
+      strengthening cybersecurity, and ensuring compliance before problems arise.
+      Our approach goes beyond technology; we focus on building long-term
+      partnerships rooted in trust and transparency. From local family-run shops
+      to growing companies with complex needs, our impact is measured in the
+      confidence our clients gain knowing their IT is secure, efficient, and
+      built for growth.
+    </p>
+  </div>
+</section>
+
 
       {/* Empowering Small Businesses */}
       <section className="py-10 text-center max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 flex flex-col gap-6">
