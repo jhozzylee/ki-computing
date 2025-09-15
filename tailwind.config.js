@@ -21,7 +21,7 @@ module.exports = {
         filson: ["Filson Soft", "sans-serif"],
       },
       fontSize: {
-        h1: ["56px", { fontWeight: "700", lineHeight: "1.2" }],
+        h1: ["54px", { fontWeight: "700", lineHeight: "1.2" }],
         h2: ["36px", { fontWeight: "700", lineHeight: "1.3" }],
         h3: ["24px", { fontWeight: "500", lineHeight: "1.4" }],
         h4: ["18px", { fontWeight: "500", lineHeight: "1.4" }],
