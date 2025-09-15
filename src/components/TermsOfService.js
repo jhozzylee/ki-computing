@@ -4,10 +4,10 @@ const TermsOfService = () => {
   return (
     <section className="bg-background text-dark pt-24 sm:pt-28 lg:pt-24">
       <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col gap-6">
-        <h1 className="text-h2 sm:text-h1 font-bold font-filson text-center sm:text-left">
+        <h1 className="text-h2 sm:text-h1 font-bold font-filson text-left">
           Terms of Service for K.I. Computing, LLC
         </h1>
-        <p className="text-bodyLg max-w-2xl mx-auto sm:mx-0 text-center sm:text-left">
+        <p className="text-body sm:text-bodyLg max-w-2xl sm:mx-0 text-left">
           Effective Date: 11/11/2024
         </p>
       </div>
