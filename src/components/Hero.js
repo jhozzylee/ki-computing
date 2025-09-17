@@ -24,8 +24,8 @@ const Hero = ({ onOpenBookCall }) => (
         </div>
 
         <p className="text-body mb-8 max-w-[544px] mx-auto lg:mx-0">
-          We deliver smart, secure, fully managed IT solutions tailored to your
-          business and built for growth.
+          We specialize in supporting medical offices, dental practices, and nonprofits with 
+          secure, fully managed IT solutions tailored for growth.
         </p>
 
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-[40px]">

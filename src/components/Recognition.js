@@ -28,13 +28,25 @@ const AboutPage = () => {
   return (
     <div className="bg-background text-dark">
       {/* Features + Recognition */}
-<section className="py-20 max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+
+      {/* Empowering Small Businesses */}
+      <section className="py-10 text-center max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 flex flex-col gap-6">
+        <h2 className="text-h2 font-filson">
+          From Local IT Support to Trusted Technology Partner
+        </h2>
+        <p className="text-bodyLg text-neutral">
+        Our journey began as a small, family-owned IT provider, helping local businesses with everyday tech challenges. Over time, we grew alongside our clients, expanding into advanced cybersecurity, compliance, backup, and managed IT services. What started as a neighborhood support team has become a trusted partner for medical offices, dental practices, and nonprofits that need enterprise-level solutions — delivered with the personal care and reliability of a local team.
+        
+        </p>
+      </section>
+      <section className="py-20 max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12">
   {/* Left Column: Features */}
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-[32px] order-2 lg:order-1 justify-center">
     {features.map((feature, idx) => (
       <div
         key={idx}
-        className="w-[256px] mx-auto px-1 py-4 rounded-[16px] border border-surface-muted flex flex-col gap-3"
+        className="w-[256px] mx-auto px-1 py-4 flex flex-col gap-3"
       >
         <h4 className="text-h3 text-primary font-filson">{feature.title}</h4>
         <p className="text-body text-neutral">{feature.description}</p>
@@ -61,23 +73,6 @@ const AboutPage = () => {
   </div>
 </section>
 
-
-      {/* Empowering Small Businesses */}
-      <section className="py-10 text-center max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 flex flex-col gap-6">
-        <h2 className="text-h2 font-filson">
-          Empowering small businesses through{" "}
-          <span className="text-primary">Secure Technology</span>
-        </h2>
-        <p className="text-bodyLg text-neutral">
-          At K.I. Computing, we believe every business deserves technology that works
-          for them — not against them. That’s why we focus on delivering enterprise-level
-          IT solutions tailored to the needs and budgets of small businesses. By combining
-          deep expertise with a client-first mindset, we make technology simple, secure,
-          and reliable so our clients can focus on what they do best: running their
-          business.
-        </p>
-      </section>
-
       {/* Rooted in Community */}
       <section className="py-10 text-center max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 flex flex-col gap-6">
         <h2 className="text-h2 font-filson">
@@ -85,9 +80,9 @@ const AboutPage = () => {
         </h2>
         <p className="text-bodyLg text-neutral">
           We’re more than IT professionals — we’re neighbors, partners, and problem-solvers
-          who care about the people behind every business. Being family-owned means
-          relationships matter to us, and that extends to how we serve our clients. Outside
-          of technology, we’re committed to supporting our local community, mentoring the
+          who care about the people behind every business. As a family-owned company,
+          relationships matter to us, and that extends to how we serve our clients. Beyond
+          technology, we’re committed to supporting our local community, mentoring the
           next generation of IT professionals, and building connections that last.
         </p>
       </section>

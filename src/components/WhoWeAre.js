@@ -31,7 +31,7 @@ const WhoWeAre = () => {
             Struggling to stay secure, compliant, and ahead of tech challenges?
           </p>
           <h3 className="text-h3 font-filson text-dark text-left max-w-full sm:max-w-[780px]">
-            Smart IT solutions, proactive cybersecurity, and compliance support — built to give small businesses peace of mind and performance.
+            Smart IT and cybersecurity solutions — built for medical offices, dental practices, and nonprofits.
           </h3>
         </div>
 
