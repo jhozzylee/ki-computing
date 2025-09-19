@@ -80,7 +80,7 @@ const Footer = () => {
           <div className="flex gap-6">
             <a href="https://www.facebook.com/kicomputing" aria-label="Facebook" className="hover:text-surface-shade border border-background rounded-lg p-1 hover:border-surface-shade hover:scale-105"><Facebook size={24} strokeWidth={1}/></a>
             <a href="https://twitter.com/computing_i" aria-label="Twitter" className="hover:text-surface-shade border border-background rounded-lg p-1 hover:border-surface-shade hover:scale-105"><Twitter size={24} strokeWidth={1}/></a>
-            <a href="https://twitter.com/computing_i" aria-label="Instagram" className="hover:text-surface-shade border border-background rounded-lg p-1 hover:border-surface-shade hover:scale-105"><Instagram size={24} strokeWidth={1}/></a>
+            <a href="https://www.instagram.com/kicomputing/" aria-label="Instagram" className="hover:text-surface-shade border border-background rounded-lg p-1 hover:border-surface-shade hover:scale-105"><Instagram size={24} strokeWidth={1}/></a>
             <a href="https://www.linkedin.com/company/k.i.-computing/" aria-label="LinkedIn" className="hover:text-surface-shade border border-background rounded-lg p-1 hover:border-surface-shade hover:scale-105"><Linkedin size={24} strokeWidth={1}/></a>
           </div>
         </div>

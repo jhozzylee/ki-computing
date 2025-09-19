@@ -8,6 +8,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false); // 👈 modal state
   const location = useLocation();
+  const sheetDbUrl = "https://sheetdb.io/api/v1/4n6ca4eyf4j2u";
 
   // Navigation items
   const navItems = [
@@ -116,7 +117,11 @@ const Header = () => {
       </div>
 
       {/* Contact Modal */}
-      <ContactModal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} /> {/* 👈 render modal */}
+      <ContactModal
+      isOpen={isModalOpen}
+      onRequestClose={() => setIsModalOpen(false)}
+      sheetDbUrl={sheetDbUrl}
+      />
     </header>
   );
 };

@@ -5,6 +5,9 @@ const EmailCapture = () => {
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [status, setStatus] = useState("");
 
+  // ✅ Hardcoded SheetDB URL
+  const sheetDbUrl = "https://sheetdb.io/api/v1/4n6ca4eyf4j2u?sheet=EmailCapture";
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -14,38 +17,29 @@ const EmailCapture = () => {
     setStatus("Submitting...");
 
     try {
-      const res = await fetch(
-        "https://www.kicomputing.com/wp-json/gf/v2/forms/5/submissions", // 👈 replace 5 with your actual Form ID
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Basic " + btoa("YOUR_CONSUMER_KEY:YOUR_CONSUMER_SECRET"), // 👈 replace with keys
-          },
-          body: JSON.stringify({
-            input_values: {
-              "1": formData.name, // 👈 replace 1 with the correct Gravity Forms field ID for Name
-              "2": formData.email, // 👈 replace 2 with the correct Gravity Forms field ID for Email
-            },
-          }),
-        }
-      );
+      const res = await fetch(sheetDbUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: formData }),
+      });
 
       if (res.ok) {
         setStatus("✅ eBook request submitted! Check your inbox.");
         setFormData({ name: "", email: "" });
       } else {
+        const errorText = await res.text();
+        console.error("SheetDB error:", errorText);
         setStatus("❌ Error submitting request.");
       }
     } catch (err) {
-      console.error(err);
+      console.error("Network error:", err);
       setStatus("❌ Something went wrong.");
     }
   };
 
   return (
     <section className="bg-dark text-background py-10 px-4 sm:px-6 lg:px-0">
-      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="max-w-[1120px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
         
         {/* Left Content */}
         <div className="flex-1 max-w-[588px] flex flex-col gap-6">
@@ -60,7 +54,7 @@ const EmailCapture = () => {
           </div>
 
           {/* Mobile Image */}
-          <div className="flex-shrink-0 w-full flex justify-center order-2 lg:hidden">
+          <div className="flex justify-center lg:hidden order-2">
             <img
               src={ebookImg}
               alt="Cybersecurity eBook"
