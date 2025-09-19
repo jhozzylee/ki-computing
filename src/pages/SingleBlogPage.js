@@ -2,15 +2,15 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import EmailCapture from "../components/EmailCaptureSection";
-import BlogIntro from "../components/BlogIntro"; // ✅ make sure this file exists
 import TopBanner from "../components/TopBanner";
+import SingleBlog from "../components/SingleBlog";
 
-export default function Blog() {
+export default function SingleBlogPage() {
   return (
     <div>
       <TopBanner />
       <Header />
-      <BlogIntro />
+      <SingleBlog />   {/* 👈 single post */}
       <EmailCapture />
       <Footer />
     </div>

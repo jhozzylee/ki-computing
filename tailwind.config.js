@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -32,15 +33,27 @@ module.exports = {
         btn: ["16px", { fontWeight: "400", lineHeight: "1.4" }],
       },
       screens: {
-        'xs': '375px',
-        'sm': '640px',
-        'md': '768px',
-        'md-lg': '992px',
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
+        xs: "375px",
+        sm: "640px",
+        md: "768px",
+        "md-lg": "992px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            p: {
+              marginTop: theme("spacing.4"),
+              marginBottom: theme("spacing.4"),
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+  ],
 };

@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Blog from "./pages/Blog";
+import SingleBlogPage from "./pages/SingleBlogPage"; // 👈 new wrapper
 import Contact from "./pages/Contact";
 import Cybersecurity from "./pages/CybersecurityPage";
 import Compliance from "./pages/CompliancePage";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<SingleBlogPage />} /> {/* 👈 new page */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/cybersecurity" element={<Cybersecurity />} />
         <Route path="/compliance" element={<Compliance />} />
@@ -39,4 +41,3 @@ function App() {
 }
 
 export default App;
-
