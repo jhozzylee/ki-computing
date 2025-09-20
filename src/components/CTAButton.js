@@ -24,7 +24,7 @@ const CTAButton = ({
     `,
     link: `
       bg-transparent text-primary px-6
-      hover:bg-primary/10 hover:text-pimary hover:border hover:border-primary
+      hover:bg-primary/10 hover:text-pimary hover:border hover:border-primary 
     `,
   };
 
