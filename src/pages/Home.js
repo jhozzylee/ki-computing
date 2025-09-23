@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import TopBanner from "../components/TopBanner";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -19,6 +20,52 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        {/* ✅ Localized SEO */}
+        <title>
+          Managed IT & Cybersecurity Services in Wyoming | Ki Computing
+        </title>
+        <meta
+          name="description"
+          content="Ki Computing provides HIPAA-compliant IT support, cybersecurity, cloud backup, and consulting for medical offices, dental practices, and nonprofits in Wyoming."
+        />
+        <link rel="canonical" href="https://www.kicomputing.com/" />
+
+        {/* ✅ Open Graph */}
+        <meta
+          property="og:title"
+          content="Managed IT & Cybersecurity Services in Wyoming | Ki Computing"
+        />
+        <meta
+          property="og:description"
+          content="Trusted IT services for Wyoming medical offices, dental practices, and nonprofits. HIPAA-compliant cybersecurity, cloud backup, and responsive local support."
+        />
+        <meta property="og:url" content="https://www.kicomputing.com/" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://www.kicomputing.com/og-image.jpg"
+        />
+
+        {/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Managed IT & Cybersecurity Services in Wyoming | Ki Computing"
+        />
+        <meta
+          name="twitter:description"
+          content="Trusted IT services for Wyoming medical offices, dental practices, and nonprofits. HIPAA-compliant cybersecurity, cloud backup, and responsive local support."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.kicomputing.com/og-image.jpg"
+        />
+
+        {/* ✅ Theme Color */}
+        <meta name="theme-color" content="#0A66C2" />
+      </Helmet>
+
       <TopBanner />
       <Header />
       <Hero onOpenBookCall={handleOpenBookCall} />
