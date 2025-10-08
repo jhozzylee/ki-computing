@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop"; 
+import HelloSkipAgent from "./components/HelloSkipAgent"; // ✅ Import the agent
 
 // Lazy imports for code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -41,6 +42,9 @@ function App() {
           <Route path="/terms" element={<Terms />} />
         </Routes>
       </Suspense>
+
+      {/* ✅ Add the HelloSkip Agent globally */}
+      <HelloSkipAgent />
     </BrowserRouter>
   );
 }
