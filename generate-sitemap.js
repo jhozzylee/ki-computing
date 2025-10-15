@@ -1,7 +1,6 @@
-// generate-sitemap.js
 const fs = require("fs");
 const path = require("path");
-const { client } = require("./src/components/sanityClient"); // ✅ fixed path
+const { client } = require("./src/components/sanityClient");
 
 const BASE_URL = "https://www.kicomputing.com";
 
@@ -10,6 +9,8 @@ async function generateSitemap() {
     // ✅ Fetch all blog slugs from Sanity
     const query = `*[_type == "blog"]{ "slug": slug.current }`;
     const blogs = await client.fetch(query);
+
+    console.log("✅ Found blog posts:", blogs.length);
 
     // ✅ Static pages
     const staticPages = [
@@ -28,13 +29,13 @@ async function generateSitemap() {
       "terms",
     ];
 
-    // ✅ Combine static + dynamic blog URLs
+    // ✅ Merge static + dynamic
     const allPages = [
       ...staticPages,
       ...blogs.map((b) => `blog/${b.slug}`),
     ];
 
-    // ✅ Create XML
+    // ✅ Generate sitemap XML
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages
@@ -49,12 +50,12 @@ ${allPages
   .join("")}
 </urlset>`;
 
-    // ✅ Save to /public/sitemap.xml
+    // ✅ Save to public folder
     const outputPath = path.join(__dirname, "public", "sitemap.xml");
     fs.writeFileSync(outputPath, sitemap.trim());
     console.log("✅ Sitemap generated successfully:", outputPath);
   } catch (error) {
-    console.error("❌ Error generating sitemap:", error);
+    console.error("❌ Error generating sitemap:", error.message);
   }
 }
 
