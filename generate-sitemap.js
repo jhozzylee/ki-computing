@@ -7,7 +7,7 @@ const BASE_URL = "https://www.kicomputing.com";
 async function generateSitemap() {
   try {
     // ✅ Fetch all blog slugs from Sanity
-    const query = `*[_type == "blog"]{ "slug": slug.current }`;
+    const query = `*[_type == "post"]{ "slug": slug.current }`;
     const blogs = await client.fetch(query);
 
     console.log("✅ Found blog posts:", blogs.length);
