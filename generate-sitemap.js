@@ -8,12 +8,9 @@ async function generateSitemap() {
   try {
     // ✅ Fetch all blog slugs from Sanity
     const query = `*[_type == "post"]{ "slug": slug.current }`;
-    const blogs = await client.fetch(query);
+    const blogs = (await client.fetch(query)).filter((b) => b.slug);
 
-    // ✅ Filter out any posts without a slug
-    const validBlogs = blogs.filter((b) => b.slug);
-
-    console.log(`✅ Found blog posts: ${validBlogs.length}`);
+    console.log("✅ Found blog posts:", blogs.length);
 
     // ✅ Static pages
     const staticPages = [
@@ -32,11 +29,7 @@ async function generateSitemap() {
       "terms",
     ];
 
-    // ✅ Merge static + dynamic pages
-    const allPages = [
-      ...staticPages,
-      ...validBlogs.map((b) => `blog/${b.slug}`),
-    ];
+    const allPages = [...staticPages, ...blogs.map((b) => `blog/${b.slug}`)];
 
     // ✅ Generate sitemap XML
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -53,7 +46,7 @@ ${allPages
   .join("")}
 </urlset>`;
 
-    // ✅ Save sitemap to /public
+    // ✅ Save to public folder
     const outputPath = path.join(__dirname, "public", "sitemap.xml");
     fs.writeFileSync(outputPath, sitemap.trim());
     console.log("✅ Sitemap generated successfully:", outputPath);
@@ -62,4 +55,8 @@ ${allPages
   }
 }
 
-generateSitemap();
+(async () => {
+  console.log("⏳ Waiting 5 seconds before fetching Sanity data...");
+  await new Promise((resolve) => setTimeout(resolve, 5000)); // wait 5s
+  await generateSitemap();
+})();
