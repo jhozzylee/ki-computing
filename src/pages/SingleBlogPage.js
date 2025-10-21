@@ -1,70 +1,86 @@
-import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
-import { useParams } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import EmailCapture from "../components/EmailCaptureSection";
-import TopBanner from "../components/TopBanner";
-import SingleBlog from "../components/SingleBlog";
+import fs from "fs";
+import path from "path";
+import { client } from "./src/components/sanityClient";
+import imageUrlBuilder from "@sanity/image-url";
 
-// Dummy fetch function: replace with your CMS API
-async function fetchBlog(slug) {
-  // Example structure returned from your CMS
-  return {
-    title: slug.replace(/-/g, " "),
-    description:
-      "Read the latest IT tips, cybersecurity updates, and HIPAA compliance insights tailored for Wyoming healthcare providers, dental offices, and nonprofits.",
-    featuredImage: `https://www.kicomputing.com/blog-images/${slug}.jpg`, // example path
-    content: "<p>Blog content goes here...</p>",
-  };
+// Sanity image builder
+const builder = imageUrlBuilder(client);
+const urlFor = (source) => builder.image(source).url();
+
+const BASE_URL = "https://www.kicomputing.com";
+
+async function generateSitemap() {
+  console.log("⏳ Waiting 5 seconds before fetching Sanity data...");
+  await new Promise((r) => setTimeout(r, 5000));
+
+  // Fetch blog posts
+  const query = `*[_type == "post" && defined(slug.current)]{
+    "slug": slug.current,
+    mainImage
+  }`;
+  const posts = await client.fetch(query);
+
+  console.log(`✅ Found blog posts: ${posts.length}`);
+
+  // Static pages
+  const staticPages = [
+    "",
+    "about",
+    "services",
+    "blog",
+    "contact",
+    "cybersecurity",
+    "compliance",
+    "backup",
+    "managed-it",
+    "cloud",
+    "consulting",
+    "policy",
+    "terms",
+  ];
+
+  // Generate XML
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${staticPages
+  .map(
+    (page) => `
+  <url>
+    <loc>${BASE_URL}/${page}</loc>
+    <changefreq>daily</changefreq>
+    <priority>${page === "" ? "1.0" : "0.7"}</priority>
+  </url>`
+  )
+  .join("")}
+${posts
+  .map((post) => {
+    const imageUrl = post.mainImage ? urlFor(post.mainImage) : "";
+    return `
+  <url>
+    <loc>${BASE_URL}/blog/${post.slug}</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    ${imageUrl ? `<image:image><image:loc>${imageUrl}</image:loc></image:image>` : ""}
+  </url>`;
+  })
+  .join("")}
+</urlset>`;
+
+  // Write to public/
+  const publicPath = path.join(process.cwd(), "public", "sitemap.xml");
+  fs.writeFileSync(publicPath, sitemap.trim());
+  console.log("✅ Sitemap written to /public/sitemap.xml");
+
+  // Copy to build/ if exists
+  const buildPath = path.join(process.cwd(), "build", "sitemap.xml");
+  if (fs.existsSync(path.join(process.cwd(), "build"))) {
+    fs.copyFileSync(publicPath, buildPath);
+    console.log("🚀 Sitemap copied to /build/sitemap.xml (for deployment)");
+  } else {
+    console.log("⚠️ Build folder not found yet — will be copied next build");
+  }
 }
 
-export default function SingleBlogPage() {
-  const { slug } = useParams();
-  const [blog, setBlog] = useState(null);
-
-  useEffect(() => {
-    fetchBlog(slug).then((data) => setBlog(data));
-  }, [slug]);
-
-  if (!blog) return <div className="p-12">Loading...</div>;
-
-  const blogTitle = `Ki Computing Blog | ${blog.title}`;
-  const blogDescription = blog.description;
-  const blogUrl = `https://www.kicomputing.com/blog/${slug}`;
-  const blogImage = blog.featuredImage || "https://www.kicomputing.com/default-blog.jpg";
-
-  return (
-    <>
-      <Helmet>
-        <title>{blogTitle}</title>
-        <meta name="description" content={blogDescription} />
-        <link rel="canonical" href={blogUrl} />
-
-        {/* Open Graph */}
-        <meta property="og:title" content={blogTitle} />
-        <meta property="og:description" content={blogDescription} />
-        <meta property="og:url" content={blogUrl} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={blogImage} />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blogTitle} />
-        <meta name="twitter:description" content={blogDescription} />
-        <meta name="twitter:image" content={blogImage} />
-
-        {/* Theme color */}
-        <meta name="theme-color" content="#0A66C2" />
-      </Helmet>
-
-      <div>
-        <TopBanner />
-        <Header />
-        <SingleBlog blog={blog} />
-        <EmailCapture />
-        <Footer />
-      </div>
-    </>
-  );
-}
+generateSitemap().catch((err) => console.error("❌ Sitemap generation failed:", err));
