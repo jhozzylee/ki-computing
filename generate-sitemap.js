@@ -6,9 +6,12 @@ const BASE_URL = "https://www.kicomputing.com";
 
 async function generateSitemap() {
   try {
+    console.log("⏳ Waiting 5 seconds before fetching Sanity data...");
+    await new Promise((resolve) => setTimeout(resolve, 5000)); // small delay for freshness
+
     // ✅ Fetch all blog slugs from Sanity
-    const query = `*[_type == "post"]{ "slug": slug.current }`;
-    const blogs = (await client.fetch(query)).filter((b) => b.slug);
+    const query = `*[_type == "post" && defined(slug.current)]{ "slug": slug.current }`;
+    const blogs = await client.fetch(query);
 
     console.log("✅ Found blog posts:", blogs.length);
 
@@ -29,7 +32,11 @@ async function generateSitemap() {
       "terms",
     ];
 
-    const allPages = [...staticPages, ...blogs.map((b) => `blog/${b.slug}`)];
+    // ✅ Merge static + dynamic
+    const allPages = [
+      ...staticPages,
+      ...blogs.map((b) => `blog/${b.slug}`),
+    ];
 
     // ✅ Generate sitemap XML
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -46,17 +53,25 @@ ${allPages
   .join("")}
 </urlset>`;
 
-    // ✅ Save to public folder
-    const outputPath = path.join(__dirname, "public", "sitemap.xml");
-    fs.writeFileSync(outputPath, sitemap.trim());
-    console.log("✅ Sitemap generated successfully:", outputPath);
+    // ✅ Paths
+    const publicPath = path.join(__dirname, "public", "sitemap.xml");
+    const buildPath = path.join(__dirname, "build", "sitemap.xml");
+
+    // ✅ Write to /public
+    fs.writeFileSync(publicPath, sitemap.trim());
+    console.log("✅ Sitemap written to /public/sitemap.xml");
+
+    // ✅ Also copy to /build (for CRA deployment on Vercel)
+    if (fs.existsSync(path.join(__dirname, "build"))) {
+      fs.writeFileSync(buildPath, sitemap.trim());
+      console.log("✅ Sitemap also copied to /build/sitemap.xml");
+    } else {
+      console.log("⚠️ Build folder not found yet — will be copied next build");
+    }
+
   } catch (error) {
     console.error("❌ Error generating sitemap:", error.message);
   }
 }
 
-(async () => {
-  console.log("⏳ Waiting 5 seconds before fetching Sanity data...");
-  await new Promise((resolve) => setTimeout(resolve, 5000)); // wait 5s
-  await generateSitemap();
-})();
+generateSitemap();
