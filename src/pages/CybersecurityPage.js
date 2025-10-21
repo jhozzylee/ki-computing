@@ -60,6 +60,40 @@ export default function CybersecurityPage() {
 
         {/* ✅ Theme color */}
         <meta name="theme-color" content="#0A66C2" />
+
+        {/* ✅ Local Business Schema for Wyoming */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "Ki Computing",
+            image: "https://www.kicomputing.com/og-about.jpg",
+            "@id": "https://www.kicomputing.com",
+            url: "https://www.kicomputing.com",
+            telephone: "(307) 254-9944",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "1050 Lane 10",
+              addressLocality: "Powell",
+              addressRegion: "WY",
+              postalCode: "82435",
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: "41.1400",
+              longitude: "-104.8202",
+            },
+            sameAs: [
+              "https://www.facebook.com/kicomputing",
+              "https://www.linkedin.com/company/k.i.-computing/",
+              "https://g.page/ki-computing",
+              "https://www.instagram.com/kicomputing/",
+              "https://twitter.com/computing_i",
+            ],
+            openingHours: "Mo-Fr 08:00-17:00",
+          })}
+        </script>
       </Helmet>
 
       <div>

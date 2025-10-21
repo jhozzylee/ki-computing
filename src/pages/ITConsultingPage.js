@@ -22,7 +22,7 @@ export default function ITConsultingPage() {
           name="description"
           content="Ki Computing offers IT consulting services in Wyoming for medical practices, dental offices, and nonprofits. Get expert IT strategy, compliance support, and reliable technology solutions."
         />
-        <link rel="canonical" href="https://www.kicomputing.com/it-consulting" />
+        <link rel="canonical" href="https://www.kicomputing.com/consulting" />
 
         {/* ✅ Open Graph */}
         <meta
@@ -35,12 +35,12 @@ export default function ITConsultingPage() {
         />
         <meta
           property="og:url"
-          content="https://www.kicomputing.com/it-consulting"
+          content="https://www.kicomputing.com/consulting"
         />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://www.kicomputing.com/og-it-consulting.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Twitter */}
@@ -55,11 +55,52 @@ export default function ITConsultingPage() {
         />
         <meta
           name="twitter:image"
-          content="https://www.kicomputing.com/og-it-consulting.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Theme color */}
         <meta name="theme-color" content="#0A66C2" />
+
+        {/* ✅ Local Business Schema for Wyoming */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "Ki Computing",
+            image: "https://www.kicomputing.com/og-image.jpg",
+            "@id": "https://www.kicomputing.com",
+            url: "https://www.kicomputing.com",
+            telephone: "(307) 254-9944",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "1050 Lane 10",
+              addressLocality: "Powell",
+              addressRegion: "WY",
+              postalCode: "82435",
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: "41.1400",
+              longitude: "-104.8202",
+            },
+            sameAs: [
+              "https://www.facebook.com/kicomputing",
+              "https://www.linkedin.com/company/k.i.-computing/",
+              "https://g.page/ki-computing",
+              "https://www.instagram.com/kicomputing/",
+              "https://twitter.com/computing_i",
+            ],
+            openingHours: "Mo-Fr 08:00-17:00",
+            description:
+              "Ki Computing provides professional IT consulting services in Wyoming, helping medical, dental, and nonprofit organizations with compliance, strategy, and technology implementation.",
+            priceRange: "$$",
+            areaServed: {
+              "@type": "State",
+              name: "Wyoming",
+            },
+          })}
+        </script>
       </Helmet>
 
       <div>
@@ -70,7 +111,7 @@ export default function ITConsultingPage() {
         <Footer />
       </div>
 
-      {/* Book a Call Modal */}
+      {/* ✅ Book a Call Modal */}
       <BookCall isOpen={isBookCallOpen} onClose={handleCloseBookCall} />
     </>
   );

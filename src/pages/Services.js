@@ -17,19 +17,26 @@ export default function Services() {
   return (
     <>
       <Helmet>
-        {/* ✅ SEO for Services page */}
-        <title>IT Services in Wyoming | Ki Computing</title>
+        {/* ✅ Local SEO for Services page (Wyoming Focus) */}
+        <title>Managed IT & Cybersecurity Services in Wyoming | KI Computing</title>
         <meta
           name="description"
-          content="Ki Computing provides IT services in Wyoming for private medical offices, dental practices, and nonprofits. Explore our cybersecurity, compliance, backup, and IT consulting services."
+          content="KI Computing offers professional IT and cybersecurity services across Wyoming, including Cheyenne, Casper, and Laramie. We specialize in managed IT, HIPAA-compliant support, cloud backup, and network protection for healthcare and nonprofit organizations."
+        />
+        <meta
+          name="keywords"
+          content="Wyoming IT services, Cheyenne IT company, Casper managed IT, Laramie cybersecurity, Wyoming cloud backup, IT consulting Wyoming, HIPAA compliance IT support"
         />
         <link rel="canonical" href="https://www.kicomputing.com/services" />
 
         {/* ✅ Open Graph */}
-        <meta property="og:title" content="IT Services in Wyoming | Ki Computing" />
+        <meta
+          property="og:title"
+          content="Managed IT & Cybersecurity Services in Wyoming | KI Computing"
+        />
         <meta
           property="og:description"
-          content="Managed IT, cybersecurity, compliance, and cloud backup services for healthcare and nonprofit organizations in Wyoming."
+          content="Wyoming-based IT company providing managed services, cybersecurity, and cloud solutions for healthcare and nonprofit organizations."
         />
         <meta property="og:url" content="https://www.kicomputing.com/services" />
         <meta property="og:type" content="website" />
@@ -37,13 +44,17 @@ export default function Services() {
           property="og:image"
           content="https://www.kicomputing.com/og-services.jpg"
         />
+        <meta property="og:locale" content="en_US" />
 
         {/* ✅ Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="IT Services in Wyoming | Ki Computing" />
+        <meta
+          name="twitter:title"
+          content="Managed IT & Cybersecurity Services in Wyoming | KI Computing"
+        />
         <meta
           name="twitter:description"
-          content="Professional IT services in Wyoming for healthcare providers and nonprofits. HIPAA-compliant, secure, and reliable."
+          content="Professional IT solutions for Wyoming businesses — including managed IT, cybersecurity, and compliance support."
         />
         <meta
           name="twitter:image"
@@ -52,6 +63,40 @@ export default function Services() {
 
         {/* ✅ Theme color */}
         <meta name="theme-color" content="#0A66C2" />
+
+        {/* ✅ Local Business Schema */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "KI Computing",
+            "image": "https://www.kicomputing.com/og-services.jpg",
+            "url": "https://www.kicomputing.com",
+            "telephone": "+1-307-555-1234",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "123 Tech Avenue",
+              "addressLocality": "Cheyenne",
+              "addressRegion": "WY",
+              "postalCode": "82001",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 41.1400,
+              "longitude": -104.8202
+            },
+            "areaServed": ["Cheyenne", "Casper", "Laramie", "Wyoming"],
+            "sameAs": [
+              "https://www.facebook.com/kicomputing",
+              "https://www.linkedin.com/company/kicomputing"
+            ],
+            "description": "KI Computing provides managed IT, cybersecurity, and cloud services for healthcare and nonprofit organizations across Wyoming."
+          }
+          `}
+        </script>
       </Helmet>
 
       <div>
