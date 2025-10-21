@@ -1,77 +1,63 @@
-const fs = require("fs");
-const path = require("path");
-const { client } = require("./src/components/sanityClient");
+import fs from "fs";
+import path from "path";
+import axios from "axios";
 
-const BASE_URL = "https://www.kicomputing.com";
+const SANITY_API = "https://your_sanity_project_id.api.sanity.io/v2023-10-07/data/query/production?query=*[_type=='post']{slug}";
 
 async function generateSitemap() {
-  try {
-    console.log("⏳ Waiting 5 seconds before fetching Sanity data...");
-    await new Promise((resolve) => setTimeout(resolve, 5000)); // small delay for freshness
+  console.log("⏳ Waiting 5 seconds before fetching Sanity data...");
+  await new Promise((r) => setTimeout(r, 5000));
 
-    // ✅ Fetch all blog slugs from Sanity
-    const query = `*[_type == "post" && defined(slug.current)]{ "slug": slug.current }`;
-    const blogs = await client.fetch(query);
+  const res = await axios.get(SANITY_API);
+  const posts = res.data.result || [];
+  console.log(`✅ Found blog posts: ${posts.length}`);
 
-    console.log("✅ Found blog posts:", blogs.length);
+  const baseUrl = "https://www.kicomputing.com";
+  const pages = [
+    "",
+    "about",
+    "contact",
+    "pricing",
+    "blog",
+    "expertise",
+    "results",
+  ];
 
-    // ✅ Static pages
-    const staticPages = [
-      "",
-      "about",
-      "services",
-      "blog",
-      "contact",
-      "cybersecurity",
-      "compliance",
-      "backup",
-      "managed-it",
-      "cloud",
-      "consulting",
-      "policy",
-      "terms",
-    ];
-
-    // ✅ Merge static + dynamic
-    const allPages = [
-      ...staticPages,
-      ...blogs.map((b) => `blog/${b.slug}`),
-    ];
-
-    // ✅ Generate sitemap XML
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allPages
+${pages
   .map(
     (page) => `
   <url>
-    <loc>${BASE_URL}/${page}</loc>
-    <changefreq>daily</changefreq>
-    <priority>${page === "" ? "1.0" : "0.7"}</priority>
+    <loc>${baseUrl}/${page}</loc>
+    <priority>${page === "" ? "1.0" : "0.8"}</priority>
+  </url>`
+  )
+  .join("")}
+${posts
+  .map(
+    (post) => `
+  <url>
+    <loc>${baseUrl}/blog/${post.slug.current}</loc>
+    <priority>0.7</priority>
   </url>`
   )
   .join("")}
 </urlset>`;
 
-    // ✅ Paths
-    const publicPath = path.join(__dirname, "public", "sitemap.xml");
-    const buildPath = path.join(__dirname, "build", "sitemap.xml");
+  // Save to public/
+  const publicPath = path.join(process.cwd(), "public", "sitemap.xml");
+  fs.writeFileSync(publicPath, sitemap);
+  console.log("✅ Sitemap written to /public/sitemap.xml");
 
-    // ✅ Write to /public
-    fs.writeFileSync(publicPath, sitemap.trim());
-    console.log("✅ Sitemap written to /public/sitemap.xml");
-
-    // ✅ Also copy to /build (for CRA deployment on Vercel)
-    if (fs.existsSync(path.join(__dirname, "build"))) {
-      fs.writeFileSync(buildPath, sitemap.trim());
-      console.log("✅ Sitemap also copied to /build/sitemap.xml");
-    } else {
-      console.log("⚠️ Build folder not found yet — will be copied next build");
-    }
-
-  } catch (error) {
-    console.error("❌ Error generating sitemap:", error.message);
+  // Copy to build/ (if it exists)
+  const buildPath = path.join(process.cwd(), "build", "sitemap.xml");
+  if (fs.existsSync(path.join(process.cwd(), "build"))) {
+    fs.copyFileSync(publicPath, buildPath);
+    console.log("🚀 Sitemap copied to /build/sitemap.xml (for deployment)");
+  } else {
+    console.log("⚠️ Build folder not found yet — will be copied next build");
   }
 }
 
-generateSitemap();
+generateSitemap().catch((err) => console.error("❌ Sitemap generation failed:", err));
