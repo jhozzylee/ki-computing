@@ -10,7 +10,10 @@ async function generateSitemap() {
     const query = `*[_type == "post"]{ "slug": slug.current }`;
     const blogs = await client.fetch(query);
 
-    console.log("✅ Found blog posts:", blogs.length);
+    // ✅ Filter out any posts without a slug
+    const validBlogs = blogs.filter((b) => b.slug);
+
+    console.log(`✅ Found blog posts: ${validBlogs.length}`);
 
     // ✅ Static pages
     const staticPages = [
@@ -29,10 +32,10 @@ async function generateSitemap() {
       "terms",
     ];
 
-    // ✅ Merge static + dynamic
+    // ✅ Merge static + dynamic pages
     const allPages = [
       ...staticPages,
-      ...blogs.map((b) => `blog/${b.slug}`),
+      ...validBlogs.map((b) => `blog/${b.slug}`),
     ];
 
     // ✅ Generate sitemap XML
@@ -43,14 +46,14 @@ ${allPages
     (page) => `
   <url>
     <loc>${BASE_URL}/${page}</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>${page === "" ? "1.0" : "0.7"}</priority>
   </url>`
   )
   .join("")}
 </urlset>`;
 
-    // ✅ Save to public folder
+    // ✅ Save sitemap to /public
     const outputPath = path.join(__dirname, "public", "sitemap.xml");
     fs.writeFileSync(outputPath, sitemap.trim());
     console.log("✅ Sitemap generated successfully:", outputPath);
