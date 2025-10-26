@@ -40,7 +40,7 @@ export default function CybersecurityPage() {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://www.kicomputing.com/og-cybersecurity.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Twitter */}
@@ -55,7 +55,7 @@ export default function CybersecurityPage() {
         />
         <meta
           name="twitter:image"
-          content="https://www.kicomputing.com/og-cybersecurity.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Theme color */}
@@ -67,7 +67,7 @@ export default function CybersecurityPage() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Ki Computing",
-            image: "https://www.kicomputing.com/og-about.jpg",
+            image: "https://www.kicomputing.com/og-image.jpg",
             "@id": "https://www.kicomputing.com",
             url: "https://www.kicomputing.com",
             telephone: "(307) 254-9944",

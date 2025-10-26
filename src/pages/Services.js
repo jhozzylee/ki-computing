@@ -42,7 +42,7 @@ export default function Services() {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://www.kicomputing.com/og-services.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
         <meta property="og:locale" content="en_US" />
 
@@ -58,7 +58,7 @@ export default function Services() {
         />
         <meta
           name="twitter:image"
-          content="https://www.kicomputing.com/og-services.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Theme color */}
@@ -71,7 +71,7 @@ export default function Services() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "KI Computing",
-            "image": "https://www.kicomputing.com/og-services.jpg",
+            "image": "https://www.kicomputing.com/og-image.jpg",
             "url": "https://www.kicomputing.com",
             "telephone": "+1-307-555-1234",
             "priceRange": "$$",

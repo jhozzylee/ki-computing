@@ -38,7 +38,7 @@ export default function Contact() {
         <meta property="og:locale" content="en_US" />
         <meta
           property="og:image"
-          content="https://www.kicomputing.com/og-services.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Twitter */}
@@ -53,7 +53,7 @@ export default function Contact() {
         />
         <meta
           name="twitter:image"
-          content="https://www.kicomputing.com/og-services.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Theme color */}
@@ -65,7 +65,7 @@ export default function Contact() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Ki Computing",
-            image: "https://www.kicomputing.com/og-services.jpg",
+            image: "https://www.kicomputing.com/og-image.jpg",
             "@id": "https://www.kicomputing.com",
             url: "https://www.kicomputing.com",
             telephone: "(307) 254-9944",
@@ -108,7 +108,7 @@ export default function Contact() {
                 },
                 offers: {
                   "@type": "Offer",
-                  url: "https://www.kicomputing.com/book-call",
+                  url: "https://www.kicomputing.com/contact",
                   price: "0",
                   priceCurrency: "USD",
                   category: "Consultation",

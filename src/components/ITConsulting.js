@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
+import ConsultationHero from "../assets/images/consultation-hero.png";
 
 const ITConsulting = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
@@ -15,6 +16,11 @@ const ITConsulting = () => {
         <p className="text-body sm:text-bodyLg max-w-2xl sm:mx-0 text-left">
           Smarter IT Decisions. Stronger Business.
         </p>
+        <img
+            src={ConsultationHero}
+            alt="Cybersecurity visualization"
+            className="w-full object-cover object-center rounded-none"
+          />
       </div>
 
       {/* Intro */}

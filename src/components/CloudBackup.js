@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
+import CloudBackupHero from "../assets/images/cloud-backup-hero.png";
 
 const CloudBackup = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
@@ -15,6 +16,11 @@ const CloudBackup = () => {
         <p className="text-body sm:text-bodyLg max-w-2xl sm:mx-0 text-left">
           Secure. Flexible. Built for Growth.
         </p>
+        <img
+            src={CloudBackupHero}
+            alt="Cybersecurity visualization"
+            className="w-full object-cover object-center rounded-none"
+          />
       </div>
 
       {/* Intro */}

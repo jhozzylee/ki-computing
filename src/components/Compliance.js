@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
+import ComplianceHero from "../assets/images/compliance-hero.jpg";
 
 const Compliance = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
@@ -15,6 +16,11 @@ const Compliance = () => {
         <p className="text-body sm:text-bodyLg max-w-2xl sm:mx-0 text-left">
           Stay Audit-Ready with K.I. Computing, LLC’s Compliance Solutions
         </p>
+        <img
+            src={ComplianceHero}
+            alt="Cybersecurity visualization"
+            className="w-full object-cover object-center rounded-none"
+          />
       </div>
 
       {/* Intro */}

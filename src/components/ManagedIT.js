@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
+import ManagedITHero from "../assets/images/Manage_IT-01.jpg";
 
 const ManagedITServices = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
@@ -15,6 +16,11 @@ const ManagedITServices = () => {
         <p className="text-body sm:text-bodyLg max-w-2xl sm:mx-0 text-left">
           Simplify IT. Empower Growth.
         </p>
+        <img
+            src={ManagedITHero}
+            alt="Cybersecurity visualization"
+            className="w-full object-cover object-center rounded-none"
+          />
       </div>
 
       {/* Intro */}

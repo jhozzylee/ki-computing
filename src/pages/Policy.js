@@ -31,7 +31,7 @@ export default function Policy() {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://www.kicomputing.com/og-privacy.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Twitter */}
@@ -46,7 +46,7 @@ export default function Policy() {
         />
         <meta
           name="twitter:image"
-          content="https://www.kicomputing.com/og-privacy.jpg"
+          content="https://www.kicomputing.com/og-image.jpg"
         />
 
         {/* ✅ Theme color */}
@@ -58,7 +58,7 @@ export default function Policy() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Ki Computing",
-            image: "https://www.kicomputing.com/og-about.jpg",
+            image: "https://www.kicomputing.com/og-image.jpg",
             "@id": "https://www.kicomputing.com",
             url: "https://www.kicomputing.com",
             telephone: "(307) 254-9944",

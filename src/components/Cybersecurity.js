@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
+import CyberHero from "../assets/images/cybersecurity-hero.png";
 
 const Cybersecurity = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
@@ -15,7 +16,13 @@ const Cybersecurity = () => {
         <p className="text-body sm:text-bodyLg max-w-2xl sm:mx-0 text-left">
           Safeguard Your Business with K.I. Computing’s Security Solutions
         </p>
-      </div>
+        {/* Fullscreen Image */}
+          <img
+            src={CyberHero}
+            alt="Cybersecurity visualization"
+            className="w-full object-cover object-center rounded-none"
+          />
+        </div>
 
       {/* Intro */}
       <div className="max-w-6xl mx-auto px-4 py-4">
