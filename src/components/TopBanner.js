@@ -1,18 +1,38 @@
 import React from "react";
+import queenbeeImg from "../assets/images/queenbee.png"; // ✅ adjust path if needed
 
 const TopBanner = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-dark text-background">
-      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 py-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-10">
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-0 py-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
         
         {/* Promo CTA - hidden on mobile */}
         <div className="hidden sm:flex items-center gap-2 text-center sm:text-left">
           <p className="text-h4 font-medium">
             Schedule a Cybersecurity Risk Assessment today &amp; get{" "}
-            <span className="font-semibold text-[#FFD369]">
+            <a
+            href="https://queenbeegardens.com/product/qbee-truffles-assorted-chocolates/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="font-semibold text-[#FFD369] hover:scale-105 transition-transform duration-300">
               FREE Queenbee honey candies!
             </span>
+          </a>
           </p>
+
+          {/* Linked Image */}
+          <a
+            href="https://queenbeegardens.com/product/qbee-truffles-assorted-chocolates/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={queenbeeImg}
+              alt="Queenbee honey candies"
+              className="h-10 w-auto rounded-md hover:scale-105 transition-transform duration-300"
+            />
+          </a>
         </div>
 
         {/* Phone CTA - always visible */}
