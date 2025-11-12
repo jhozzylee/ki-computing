@@ -76,7 +76,7 @@ const ChatBot = () => {
           <div className="flex-1 overflow-y-auto p-3 space-y-2">
             {messages.map((msg, idx) => (
               <div key={idx} className={msg.sender === "user" ? "text-right" : "text-left"}>
-                <span className={`inline-block px-3 py-2 rounded-lg ${msg.sender === "user" ? "bg-primary text-white" : "bg-gray-200"}`}>
+                <span className={`inline-block px-3 py-2 rounded-lg ${msg.sender === "user" ? "bg-primary text-surface" : "bg-gray-200"}`}>
                   {msg.text}
                 </span>
               </div>
