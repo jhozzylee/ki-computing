@@ -98,7 +98,7 @@ const ChatBot = () => {
             <button
               onClick={sendMessage}
               disabled={isInputDisabled}
-              className={`rounded-full w-10 h-10 flex items-center justify-center ${isInputDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-primary hover:bg-blue-600"} text-white transition`}
+              className={`rounded-full w-10 h-8 flex items-center justify-center ${isInputDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-primary hover:bg-blue-600"} text-white transition`}
             >
               ➤
             </button>
