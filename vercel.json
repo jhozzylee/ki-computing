@@ -1,19 +1,16 @@
 {
-  "version": 2,
+  "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml" }
+      ]
+    }
+  ],
   "functions": {
-    "server/server.js": {
-      "runtime": "@vercel/node",
+    "api/**/*.js": {
       "memory": 1024,
       "maxDuration": 10
     }
-  },
-  "builds": [
-    { "src": "server/server.js", "use": "@vercel/node" },
-    { "src": "package.json", "use": "@vercel/static-build" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "server/server.js" },
-    { "src": "/sitemap.xml", "headers": { "Content-Type": "application/xml" } },
-    { "src": "/(.*)", "dest": "/" }
-  ]
+  }
 }
