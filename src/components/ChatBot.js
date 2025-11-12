@@ -69,7 +69,7 @@ const ChatBot = () => {
       {isOpen && (
         <div className="w-[90vw] max-w-md h-[80vh] sm:w-96 sm:h-[600px] bg-background rounded-xl shadow-lg flex flex-col overflow-hidden">
           <div className="bg-primary text-white px-4 py-2 flex justify-between items-center">
-            <span className="font-filson text-h2">KI Agent</span>
+            <span className="font-filson text-h3">KI Agent</span>
             <button onClick={() => setIsOpen(false)}>✕</button>
           </div>
 
