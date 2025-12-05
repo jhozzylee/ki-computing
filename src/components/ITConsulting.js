@@ -22,6 +22,7 @@ const ITConsulting = () => {
         <div className="lg:flex lg:items-center lg:gap-8">
           <div className="mt-6 lg:mt-0 lg:flex-shrink-0 lg:w-[50%]">
             <img
+              loading="lazy"
               src={ConsultationHero}
               alt="IT Consultation visualization"
               className="w-full object-cover object-center"

@@ -22,6 +22,7 @@ const BackupRecovery = () => {
           {/* Left image */}
           <div className="mt-6 lg:mt-0 lg:flex-shrink-0 lg:w-[50%]">
             <img
+              loading="lazy"
               src={BackupHero}
               alt="Backup and recovery illustration"
               className="w-full object-cover object-center"

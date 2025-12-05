@@ -22,6 +22,7 @@ const CloudBackup = () => {
           {/* Left image */}
           <div className="mt-6 lg:mt-0 lg:flex-shrink-0 lg:w-[50%]">
             <img
+              loading="lazy"
               src={CloudBackupHero}
               alt="Cloud Backup visualization"
               className="w-full object-cover object-center"

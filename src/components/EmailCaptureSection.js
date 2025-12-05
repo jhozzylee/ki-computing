@@ -100,6 +100,7 @@ const EmailCapture = () => {
         {/* Desktop Image */}
         <div className="hidden lg:block flex-shrink-0 w-[500px]">
           <img
+            loading="lazy"
             src={ebookImg}
             alt="Cybersecurity eBook"
             className="w-[394px] h-auto object-cover rounded-[16px]"

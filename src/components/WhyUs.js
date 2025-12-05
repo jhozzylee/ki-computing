@@ -49,6 +49,7 @@ const WhyChooseUs = ({ onOpenBookCall }) => {
             {/* Image */}
             <div className="flex-shrink w-full lg:max-w-[480px] xl:max-w-[520px]">
               <img
+                loading="lazy"
                 src={whyChooseImg}
                 alt="Why Choose Us"
                 className="w-full h-auto object-cover rounded-[12px]"
