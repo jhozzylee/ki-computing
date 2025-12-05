@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ebookImg from "../assets/images/eBook.png";
+import ebookImg from "../assets/images/eBook.webp";
 
 const EmailCapture = () => {
   const [formData, setFormData] = useState({ name: "", email: "" });

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bgImage from "../assets/images/WhyUs.png";
+import bgImage from "../assets/images/WhyUs.webp";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
 

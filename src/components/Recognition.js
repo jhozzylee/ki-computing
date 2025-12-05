@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import founderImg from "../assets/images/founder.png";
+import founderImg from "../assets/images/founder.webp";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
-import CyberHero from "../assets/images/cybersecurity-hero.png";
-import promoImage from "../assets/images/queenbee.png"; // Queenbee promo image
+import CyberHero from "../assets/images/cybersecurity-hero.webp";
+import promoImage from "../assets/images/queenbee.webp"; // Queenbee promo image
 
 const Cybersecurity = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);

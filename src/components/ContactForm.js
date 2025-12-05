@@ -1,7 +1,7 @@
 import React, { useState, memo } from "react";
 import CTAButton from "./CTAButton";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import bgImage from "../assets/images/Contact-image.png";
+import bgImage from "../assets/images/Contact-image.webp";
 
 const Contact = ({ onOpenBookCall }) => {
   const sheetDbUrl = "https://sheetdb.io/api/v1/4n6ca4eyf4j2u"; // 👈 replace with your SheetDB URL

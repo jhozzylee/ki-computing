@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CTAButton from "./CTAButton";
 import BookCall from "./BookCall";
 import ComplianceHero from "../assets/images/compliance-hero.jpg";
-import bgImage from "../assets/images/queenbee.png"; // Promo image
+import bgImage from "../assets/images/queenbee.webp"; // Promo image
 
 const Compliance = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);

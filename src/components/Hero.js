@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import CTAButton from "./CTAButton";
-import bgImage from "../assets/images/hero-photo.png";
+import bgImage from "../assets/images/hero-photo.webp";
 
 const Hero = ({ onOpenBookCall }) => (
   <section className="bg-background text-neutral-default pt-24 sm:pt-28 lg:pt-36">

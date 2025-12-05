@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import bgImage from "../assets/images/about-hero.png";
+import bgImage from "../assets/images/about-hero.webp";
 
 const About = () => (
   <section className="bg-background text-neutral-default pt-24 sm:pt-28 lg:pt-36">

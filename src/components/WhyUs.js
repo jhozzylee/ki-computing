@@ -4,8 +4,8 @@ import { ReactComponent as ComplyIcon } from "../assets/icons/Book_Open.svg";
 import { ReactComponent as ReliableIcon } from "../assets/icons/handshake.svg";
 import { ReactComponent as SmartIcon } from "../assets/icons/Bulb.svg";
 import CTAButton from "./CTAButton";
-import whyChooseImg from "../assets/images/why-choose-us.png";
-import promoImage from "../assets/images/queenbee.png";
+import whyChooseImg from "../assets/images/why-choose-us.webp";
+import promoImage from "../assets/images/queenbee.webp";
 
 const WhyChooseUs = ({ onOpenBookCall }) => {
   const pillars = [
